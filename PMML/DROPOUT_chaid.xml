@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?><PMML version="4.1" xmlns="http://www.dmg.org/PMML-4_1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dmg.org/PMML-4_1 pmml-4-1.xsd">
+  <Header copyright="Copyright(c) SPSS Inc. 1989-2009. All rights reserved.">
+    <Application name="IBM SPSS Modeler Common" version="17.1.0.0"/>
+    <Timestamp/>
+</Header>
+  <DataDictionary numberOfFields="14">
+    <DataField dataType="string" displayName="Kansalaisuus" isCyclic="0" name="Kansalaisuus" optype="categorical"/>
+    <DataField dataType="double" displayName="AVG_TIMEPERSCHOOL" isCyclic="0" name="AVG_TIMEPERSCHOOL" optype="continuous"/>
+    <DataField dataType="double" displayName="TIMESINCE_LOGIN" isCyclic="0" name="TIMESINCE_LOGIN" optype="continuous"/>
+    <DataField dataType="double" displayName="LISAOPETUS" isCyclic="0" name="LISAOPETUS" optype="continuous"/>
+    <DataField dataType="double" displayName="NROF_SCHOOLS" isCyclic="0" name="NROF_SCHOOLS" optype="continuous"/>
+    <DataField dataType="double" displayName="7LK_KESKIARVO" isCyclic="0" name="7LK_KESKIARVO" optype="continuous"/>
+    <DataField dataType="double" displayName="7LK_OPINTOVIIKKOJA" isCyclic="0" name="7LK_OPINTOVIIKKOJA" optype="continuous"/>
+    <DataField dataType="double" displayName="7LK_ÄIDINKIELI" isCyclic="0" name="7LK_ÄIDINKIELI" optype="continuous"/>
+    <DataField dataType="double" displayName="7LK_LIIKUNTA" isCyclic="0" name="7LK_LIIKUNTA" optype="continuous"/>
+    <DataField dataType="double" displayName="7LK_MATEMATIIKKA" isCyclic="0" name="7LK_MATEMATIIKKA" optype="continuous"/>
+    <DataField dataType="double" displayName="7LK_TAIDEAINEET" isCyclic="0" name="7LK_TAIDEAINEET" optype="continuous"/>
+    <DataField dataType="double" displayName="7LK_KAYTOS" isCyclic="0" name="7LK_KAYTOS" optype="continuous"/>
+    <DataField dataType="double" displayName="KA_MUUTOS" isCyclic="0" name="KA_MUUTOS" optype="continuous"/>
+    <DataField dataType="double" displayName="DROPOUT" isCyclic="0" name="DROPOUT" optype="categorical">
+      <Value displayValue="0" property="valid" value="0"/>
+      <Value displayValue="1" property="valid" value="1"/>
+</DataField>
+</DataDictionary>
+  <TreeModel algorithmName="CHAID" functionName="classification">
+    <Extension extender="spss.com">
+      <X-risk value="0.164361269324654"/>
+      <X-seOfRisk value="0.0105714140267292"/>
+</Extension>
+    <MiningSchema>
+      <MiningField importance="0.30933" name="7LK_KESKIARVO" usageType="active"/>
+      <MiningField importance="0.0424426" name="KA_MUUTOS" usageType="active"/>
+      <MiningField importance="0.304424" name="7LK_KAYTOS" usageType="active"/>
+      <MiningField importance="0.220564" name="7LK_TAIDEAINEET" usageType="active"/>
+      <MiningField importance="0.123239" name="NROF_SCHOOLS" usageType="active"/>
+      <MiningField name="DROPOUT" usageType="predicted"/>
+</MiningSchema>
+    <ModelStats>
+      <UnivariateStats field="7LK_KESKIARVO">
+        <Counts invalidFreq="0" missingFreq="0" totalFreq="1229"/>
+        <NumericInfo maximum="9" minimum="0"/>
+</UnivariateStats>
+      <UnivariateStats field="KA_MUUTOS">
+        <Counts invalidFreq="0" missingFreq="0" totalFreq="1229"/>
+        <NumericInfo maximum="9" minimum="0"/>
+</UnivariateStats>
+      <UnivariateStats field="7LK_KAYTOS">
+        <Counts invalidFreq="0" missingFreq="0" totalFreq="1229"/>
+        <NumericInfo maximum="5" minimum="0"/>
+</UnivariateStats>
+      <UnivariateStats field="7LK_TAIDEAINEET">
+        <Counts invalidFreq="0" missingFreq="0" totalFreq="1229"/>
+        <NumericInfo maximum="8" minimum="0"/>
+</UnivariateStats>
+      <UnivariateStats field="NROF_SCHOOLS">
+        <Counts invalidFreq="0" missingFreq="0" totalFreq="1229"/>
+        <NumericInfo maximum="3" minimum="0"/>
+</UnivariateStats>
+</ModelStats>
+    <Node defaultChild="3" id="0" recordCount="1229" score="0">
+      <Extension>
+        <X-Node>
+          <X-NodeStats adjPValue="2.04696525712912e-006" chiSquare="38.3042227802588" df1="3"/>
+</X-Node>
+</Extension>
+      <True/>
+      <ScoreDistribution confidence="0.83319772172498" probability="0.83319772172498" recordCount="1024" value="0">
+        <Extension extender="spss.com" name="probability" value="0.83319772172498"/>
+</ScoreDistribution>
+      <ScoreDistribution confidence="0.16680227827502" probability="0.16680227827502" recordCount="205" value="1">
+        <Extension extender="spss.com" name="probability" value="0.16680227827502"/>
+</ScoreDistribution>
+      <Node defaultChild="6" id="1" recordCount="121" score="0">
+        <Extension>
+          <X-Node>
+            <X-NodeStats adjPValue="0.0246875448065629" chiSquare="10.34345684803" df1="1"/>
+</X-Node>
+</Extension>
+        <CompoundPredicate booleanOperator="surrogate">
+          <CompoundPredicate booleanOperator="and">
+            <True/>
+            <SimplePredicate field="7LK_KESKIARVO" operator="lessOrEqual" value="6.58"/>
+</CompoundPredicate>
+          <False/>
+</CompoundPredicate>
+        <ScoreDistribution confidence="0.677685950413223" probability="0.677685950413223" recordCount="82" value="0">
+          <Extension extender="spss.com" name="probability" value="0.677685950413223"/>
+</ScoreDistribution>
+        <ScoreDistribution confidence="0.322314049586777" probability="0.322314049586777" recordCount="39" value="1">
+          <Extension extender="spss.com" name="probability" value="0.322314049586777"/>
+</ScoreDistribution>
+        <Node id="5" recordCount="33" score="1">
+          <CompoundPredicate booleanOperator="surrogate">
+            <CompoundPredicate booleanOperator="and">
+              <True/>
+              <SimplePredicate field="KA_MUUTOS" operator="lessOrEqual" value="-0.2"/>
+</CompoundPredicate>
+            <False/>
+</CompoundPredicate>
+          <ScoreDistribution confidence="0.454545454545455" probability="0.454545454545455" recordCount="15" value="0">
+            <Extension extender="spss.com" name="probability" value="0.454545454545455"/>
+</ScoreDistribution>
+          <ScoreDistribution confidence="0.545454545454545" probability="0.545454545454545" recordCount="18" value="1">
+            <Extension extender="spss.com" name="probability" value="0.545454545454545"/>
+</ScoreDistribution>
+</Node>
+        <Node defaultChild="11" id="6" recordCount="88" score="0">
+          <Extension>
+            <X-Node>
+              <X-NodeStats adjPValue="0.0152987489413831" chiSquare="9.38679833913141" df1="1"/>
+</X-Node>
+</Extension>
+          <CompoundPredicate booleanOperator="surrogate">
+            <CompoundPredicate booleanOperator="or">
+              <SimplePredicate field="KA_MUUTOS" operator="isMissing"/>
+              <SimplePredicate field="KA_MUUTOS" operator="greaterThan" value="-0.2"/>
+</CompoundPredicate>
+            <True/>
+</CompoundPredicate>
+          <ScoreDistribution confidence="0.761363636363636" probability="0.761363636363636" recordCount="67" value="0">
+            <Extension extender="spss.com" name="probability" value="0.761363636363636"/>
+</ScoreDistribution>
+          <ScoreDistribution confidence="0.238636363636364" probability="0.238636363636364" recordCount="21" value="1">
+            <Extension extender="spss.com" name="probability" value="0.238636363636364"/>
+</ScoreDistribution>
+          <Node id="11" recordCount="50" score="0">
+            <CompoundPredicate booleanOperator="surrogate">
+              <CompoundPredicate booleanOperator="and">
+                <True/>
+                <SimplePredicate field="7LK_KAYTOS" operator="lessOrEqual" value="7"/>
+</CompoundPredicate>
+              <True/>
+</CompoundPredicate>
+            <ScoreDistribution confidence="0.64" probability="0.64" recordCount="32" value="0">
+              <Extension extender="spss.com" name="probability" value="0.64"/>
+</ScoreDistribution>
+            <ScoreDistribution confidence="0.36" probability="0.36" recordCount="18" value="1">
+              <Extension extender="spss.com" name="probability" value="0.36"/>
+</ScoreDistribution>
+</Node>
+          <Node id="12" recordCount="38" score="0">
+            <CompoundPredicate booleanOperator="surrogate">
+              <CompoundPredicate booleanOperator="or">
+                <SimplePredicate field="7LK_KAYTOS" operator="isMissing"/>
+                <SimplePredicate field="7LK_KAYTOS" operator="greaterThan" value="7"/>
+</CompoundPredicate>
+              <False/>
+</CompoundPredicate>
+            <ScoreDistribution confidence="0.921052631578947" probability="0.921052631578947" recordCount="35" value="0">
+              <Extension extender="spss.com" name="probability" value="0.921052631578947"/>
+</ScoreDistribution>
+            <ScoreDistribution confidence="0.0789473684210526" probability="0.0789473684210526" recordCount="3" value="1">
+              <Extension extender="spss.com" name="probability" value="0.0789473684210526"/>
+</ScoreDistribution>
+</Node>
+</Node>
+</Node>
+      <Node defaultChild="8" id="2" recordCount="372" score="0">
+        <Extension>
+          <X-Node>
+            <X-NodeStats adjPValue="0.0418598901069322" chiSquare="8.93952072010647" df1="1"/>
+</X-Node>
+</Extension>
+        <CompoundPredicate booleanOperator="surrogate">
+          <CompoundPredicate booleanOperator="and">
+            <SimplePredicate field="7LK_KESKIARVO" operator="greaterThan" value="6.58"/>
+            <SimplePredicate field="7LK_KESKIARVO" operator="lessOrEqual" value="7.18"/>
+</CompoundPredicate>
+          <False/>
+</CompoundPredicate>
+        <ScoreDistribution confidence="0.803763440860215" probability="0.803763440860215" recordCount="299" value="0">
+          <Extension extender="spss.com" name="probability" value="0.803763440860215"/>
+</ScoreDistribution>
+        <ScoreDistribution confidence="0.196236559139785" probability="0.196236559139785" recordCount="73" value="1">
+          <Extension extender="spss.com" name="probability" value="0.196236559139785"/>
+</ScoreDistribution>
+        <Node id="7" recordCount="50" score="0">
+          <CompoundPredicate booleanOperator="surrogate">
+            <CompoundPredicate booleanOperator="or">
+              <SimplePredicate field="7LK_TAIDEAINEET" operator="isMissing"/>
+              <SimplePredicate field="7LK_TAIDEAINEET" operator="lessOrEqual" value="6.75"/>
+</CompoundPredicate>
+            <False/>
+</CompoundPredicate>
+          <ScoreDistribution confidence="0.96" probability="0.96" recordCount="48" value="0">
+            <Extension extender="spss.com" name="probability" value="0.96"/>
+</ScoreDistribution>
+          <ScoreDistribution confidence="0.04" probability="0.04" recordCount="2" value="1">
+            <Extension extender="spss.com" name="probability" value="0.04"/>
+</ScoreDistribution>
+</Node>
+        <Node id="8" recordCount="322" score="0">
+          <CompoundPredicate booleanOperator="surrogate">
+            <CompoundPredicate booleanOperator="and">
+              <SimplePredicate field="7LK_TAIDEAINEET" operator="greaterThan" value="6.75"/>
+              <True/>
+</CompoundPredicate>
+            <True/>
+</CompoundPredicate>
+          <ScoreDistribution confidence="0.779503105590062" probability="0.779503105590062" recordCount="251" value="0">
+            <Extension extender="spss.com" name="probability" value="0.779503105590062"/>
+</ScoreDistribution>
+          <ScoreDistribution confidence="0.220496894409938" probability="0.220496894409938" recordCount="71" value="1">
+            <Extension extender="spss.com" name="probability" value="0.220496894409938"/>
+</ScoreDistribution>
+</Node>
+</Node>
+      <Node id="3" recordCount="614" score="0">
+        <CompoundPredicate booleanOperator="surrogate">
+          <CompoundPredicate booleanOperator="and">
+            <SimplePredicate field="7LK_KESKIARVO" operator="greaterThan" value="7.18"/>
+            <SimplePredicate field="7LK_KESKIARVO" operator="lessOrEqual" value="8.11"/>
+</CompoundPredicate>
+          <True/>
+</CompoundPredicate>
+        <ScoreDistribution confidence="0.858306188925081" probability="0.858306188925081" recordCount="527" value="0">
+          <Extension extender="spss.com" name="probability" value="0.858306188925081"/>
+</ScoreDistribution>
+        <ScoreDistribution confidence="0.141693811074919" probability="0.141693811074919" recordCount="87" value="1">
+          <Extension extender="spss.com" name="probability" value="0.141693811074919"/>
+</ScoreDistribution>
+</Node>
+      <Node defaultChild="9" id="4" recordCount="122" score="0">
+        <Extension>
+          <X-Node>
+            <X-NodeStats adjPValue="0.000275852920644067" chiSquare="15.2951771536912" df1="1"/>
+</X-Node>
+</Extension>
+        <CompoundPredicate booleanOperator="surrogate">
+          <CompoundPredicate booleanOperator="and">
+            <SimplePredicate field="7LK_KESKIARVO" operator="greaterThan" value="8.11"/>
+            <True/>
+</CompoundPredicate>
+          <False/>
+</CompoundPredicate>
+        <ScoreDistribution confidence="0.950819672131148" probability="0.950819672131148" recordCount="116" value="0">
+          <Extension extender="spss.com" name="probability" value="0.950819672131148"/>
+</ScoreDistribution>
+        <ScoreDistribution confidence="0.0491803278688525" probability="0.0491803278688525" recordCount="6" value="1">
+          <Extension extender="spss.com" name="probability" value="0.0491803278688525"/>
+</ScoreDistribution>
+        <Node id="9" recordCount="97" score="0">
+          <CompoundPredicate booleanOperator="surrogate">
+            <CompoundPredicate booleanOperator="and">
+              <True/>
+              <SimplePredicate field="NROF_SCHOOLS" operator="lessOrEqual" value="2"/>
+</CompoundPredicate>
+            <True/>
+</CompoundPredicate>
+          <ScoreDistribution confidence="0.989690721649484" probability="0.989690721649484" recordCount="96" value="0">
+            <Extension extender="spss.com" name="probability" value="0.989690721649484"/>
+</ScoreDistribution>
+          <ScoreDistribution confidence="0.0103092783505155" probability="0.0103092783505155" recordCount="1" value="1">
+            <Extension extender="spss.com" name="probability" value="0.0103092783505155"/>
+</ScoreDistribution>
+</Node>
+        <Node id="10" recordCount="25" score="0">
+          <CompoundPredicate booleanOperator="surrogate">
+            <CompoundPredicate booleanOperator="and">
+              <SimplePredicate field="NROF_SCHOOLS" operator="greaterThan" value="2"/>
+              <True/>
+</CompoundPredicate>
+            <False/>
+</CompoundPredicate>
+          <ScoreDistribution confidence="0.8" probability="0.8" recordCount="20" value="0">
+            <Extension extender="spss.com" name="probability" value="0.8"/>
+</ScoreDistribution>
+          <ScoreDistribution confidence="0.2" probability="0.2" recordCount="5" value="1">
+            <Extension extender="spss.com" name="probability" value="0.2"/>
+</ScoreDistribution>
+</Node>
+</Node>
+</Node>
+    <Extension>
+      <X-TreeModel>
+        <X-Priors>
+          <X-Prior-Value targetCategory="0" value="0.83319772172498"/>
+          <X-Prior-Value targetCategory="1" value="0.16680227827502"/>
+</X-Priors>
+</X-TreeModel>
+</Extension>
+</TreeModel>
+</PMML>
