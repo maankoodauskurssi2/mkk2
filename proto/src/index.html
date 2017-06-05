@@ -1,0 +1,239 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table.min.css">
+  </link>
+
+  <style>
+    body {
+      padding-top: 50px;
+      padding-bottom: 20px;
+    }
+  </style>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+  <script src="js/vendor/highcharts-themes/elementary.js"></script>
+
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://d3js.org/d3-array.v1.min.js"></script>
+  <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+</head>
+
+<body>
+  <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+          aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <!--<a class="navbar-brand" href="#">Brand</a>-->
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Päänäkymä</a></li>
+          <li><a href="/index2.html">Kuntataso</a></li>
+          <li><a href="/koulu.html">Koulutaso</a></li>
+          <li><a href="/malli.html">Ennustemalli</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="col-md-6">
+            <img class="logo" alt="logo" src="img/180741_oph_su_ru_vaaka_rgb.jpg">
+          </div>
+          <div class="col-md-6">
+            <h4>Syrjäytymisvarassa olevien oppilaiden määrä Suomessa</h4>
+            <p class="isoluku"><span id="isoluku">130293</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Syrjäytymisvarassa olevien oppilaiden määrä</h3>
+          </div>
+          <div class="panel-body">
+            <div class="col-md-6">
+              <div id="mapRiskStudents"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Syrjäytymisvarassa olevien oppilaiden määrän kehitys</h3>
+          </div>
+          <div class="panel-body">
+            <div class="col-md-12">
+              <div id="mapRiskStudentsTrend"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Dynaamisten riskien ratkaisuprosentti</h3>
+          </div>
+          <div class="panel-body">
+            <div class="col-md-12">
+              <div id="mapDynamicRiskResolveRatio"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Dynaamisten riskien ratkaisuprosentin kehitys</h3>
+          </div>
+          <div class="panel-body">
+            <div class="col-md-12">
+              <div id="mapDynamicRiskResolveRatioTrend"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Syrjäytymisvarassa olevien oppilaiden määrä ikäluokittain</h3>
+          </div>
+          <div class="panel-body">
+            <div class="col-md-12">
+              <div class="chart" id="riskStudentsBarChart">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Syrjäytymisvaarassa olevien oppilaiden määrä valtakunnan tasolla</h3>
+          </div>
+          <div class="panel-body">
+            <div class="col-md-12">
+              <div id="riskStudentNumberChart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Riski-indeksin keskiarvo oppilaiden keskuudessa</h3>
+          </div>
+          <div class="panel-body">
+            <div class="col-md-12">
+              <div id="riskIndexChart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--<div class="row">
+      <div class="panel panel-default">
+            <nav class="navbar" role="navigation">
+              <div class="container">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  <a class="navbar-brand" href="#"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Riskioppilaiden määrä</a></li>
+                    <li ><a href="#">Riskioppilaiden määrän muutos</a></li>
+                    <li ><a href="#">Dynaamisten riskien ratkaisu %</a></li>
+                    <li ><a href="#">Dynaamisten riskien ratkaisu %:n muutos</a></li>
+                  </ul>
+                </div>
+                <!--/.navbar-collapse -->
+    <!--</div>
+            </nav>
+
+
+      </div>
+    </div> -->
+
+
+    <div class="row">
+
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Päällimmäiset syyt</h3>
+          </div>
+          <div class="panel-body">
+            <div id="reasontable"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Kuntakohtaiset tiedot</h3>
+          </div>
+          <div class="panel-body">
+            <div id="table"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <hr>
+      <footer>
+        <p>&copy; MKK2 2017</p>
+      </footer>
+    </div>
+  </div>
+  <!-- /container -->
+  <script src="js/vendor/jquery-1.11.2.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="dist/vendor.js"></script>
+  <script src="dist/main.js"></script>
+</body>
+
+</html>

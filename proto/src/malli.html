@@ -1,0 +1,92 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table.min.css">
+  </link>
+
+  <style>
+    body {
+      padding-top: 50px;
+      padding-bottom: 20px;
+    }
+  </style>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+  <script src="js/vendor/highcharts-themes/elementary.js"></script>
+
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://d3js.org/d3-array.v1.min.js"></script>
+  <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+          aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <!--<a class="navbar-brand" href="#">Brand</a>-->
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">Päänäkymä</a></li>
+          <li><a href="/index2.html">Kuntataso</a></li>
+          <li><a href="/koulu.html">Koulutaso</a></li>
+          <li class="active"><a href="/malli.html">Ennustemalli</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="col-md-6">
+            <img class="logo" alt="logo" src="img/180741_oph_su_ru_vaaka_rgb.jpg">
+          </div>
+          <div class="col-md-6">
+            <h4>Syrjäytymisvarassa olevien oppilaiden määrä Suomessa</h4>
+            <p class="isoluku"><span id="isoluku">130293</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div id="testInquiryForm"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <hr>
+    <footer>
+      <p>&copy; MKK2 2017</p>
+    </footer>
+  </div>
+  </div>
+  <!-- /container -->
+  <script src="js/vendor/jquery-1.11.2.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="dist/vendor.js"></script>
+  <script src="dist/main.js"></script>
+</body>
+
+</html>

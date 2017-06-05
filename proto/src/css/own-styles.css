@@ -1,0 +1,58 @@
+.logo {
+  height: 150px;
+  text-align: right;
+}
+
+.isoluku {
+
+  margin: 0cm;
+  padding-top: 0cm;
+  font: 100px sans-serif;
+  color: black;
+}
+
+.luku {
+
+  margin: 0cm;
+  padding-top: 0cm;
+  font: 60px sans-serif;
+  color: black;
+}
+
+.chart div {
+  font: 10px sans-serif;
+  text-align: center;
+  padding: 3px;
+  margin: 2px;
+  color: white;
+  float: left; 
+  min-height: 450px;
+}
+
+.bar-box {
+  position: relative; 
+  min-width: 40px
+}
+
+.bar {
+  margin: 20px;
+  width: 40px; 
+  position: absolute; 
+  background: blue;
+  bottom: 0;
+}
+
+
+h1 {
+  font: 30px sans-serif ;
+  color: black;
+}
+
+h2 {
+  font: 14px sans-serif;
+  color: grey;
+}
+
+a {
+  color: white;
+}
